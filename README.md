@@ -1,0 +1,1 @@
+# Collection of Python self-learning projects
