@@ -54,3 +54,27 @@ movies = [
     ["Select another adjective: ", "[ADJECTIVE5]"],
   ]
 ]
+
+stories = [
+  dragon,
+  pizza,
+  movies
+]
+
+print("Select a Story: ")
+for index, story in enumerate(stories):
+  title = story[0]
+  print(str(int(index + 1)) + " - " + title)
+
+selection = int(input("\nChoose a story number: "))
+story = stories[selection - 1]
+phrase = story[1]
+replacements = story[2]
+
+
+print("\n\nThe story you have selected is " + story[0] + "\n")
+for prompt, placeholder in replacements:
+  user_input = input(prompt)
+  phrase = phrase.replace(placeholder, user_input)
+  
+print("\n" + phrase)
