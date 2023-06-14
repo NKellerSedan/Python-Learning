@@ -25,8 +25,8 @@ rules = [
     ]
 
 opponent_type = [
-    "2 Player",
     "Computer",
+    "Human"
     ]
 
 choices1 = [
@@ -54,15 +54,21 @@ for index, game in enumerate(game_type):
 selectedMode = 0
 while selectedMode <= 0 or selectedMode >= 3: 
     selectedMode = int(input("\nGame Mode: "))
-    modes = [item for item in game_type]
-    mode = modes[selectedMode-1]
+    if selectedMode > 0 and selectedMode <= 3:
+        modes = [item for item in game_type]
+        mode = modes[selectedMode-1]
+        break
+    else:
+        print("Invalid option! Please type either 1 or 2")
 
 print(selectedMode)
 print(modes)
 print(mode)
 
-view_rules = input("\nDo you need the rules for the " + mode + " version? (y/n) ")
+
+view_rules = ""
 while view_rules != 'y' or view_rules != 'n':
+    view_rules = input("\nDo you need the rules for the " + mode + " version? (y/n) ")
     if view_rules == 'y':
         print("\nThe rules for the " + mode + " version:")
         rule = rules[selectedMode-1]
@@ -70,19 +76,27 @@ while view_rules != 'y' or view_rules != 'n':
         break
     elif view_rules == 'n':
         break
+    else:
+        print("Invalid option! Please type either y or n")
+
+
 
 print("\n")
-for index, opponent_type in enumerate(opponent_type):
-  opponent = opponent_type[0]
-  print(str(int(index + 1)) + " - " + opponent_type)
+for index, type in enumerate(opponent_type):
+  print(str(int(index + 1)) + " - " + type)
 
 
-selectedVS = int(input("\nWho are you against?: "))
-
-print("\nSelect who your opponent: ")
-for index, opponent_type in enumerate(opponent_type):
-  opponent = opponent_type[0]
-  print(str(int(index + 1)) + " - " + opponent_type)
-
-
-selectedVS = int(input("\nWho are you against?: "))
+selectedVS = "0"
+while selectedVS != "1" or selectedVS != "2":
+    selectedVS = input("\nWho are you against?: ")
+    if selectedVS in ("1", "2"):
+        if selectedVS == "1":
+            opponent = opponent_type[0]
+            print("\nThe " + opponent + " is your opponent!")
+            break
+        elif selectedVS == "2":
+            opponent = opponent_type[1]
+            print("\nThe " + opponent + " is your opponent!")
+            break
+    else:
+        print("Invalid Option!, you needed to type a 1, or 2")
