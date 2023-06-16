@@ -29,18 +29,12 @@ opponent_type = [
     "Human"
     ]
 
-choices1 = [
-    [1, "Rock"],
-    [2, "Paper"],
-    [3, "Scissors"],
-    ]
-
-choices2 = [
-    [1, "Rock"],
-    [2, "Paper"],
-    [3, "Scissors"],
-    [4, "Lizard"],
-    [5, "Spock"],
+choices = [
+    ["Rock"],
+    ["Paper"],
+    ["Scissors"],
+    ["Lizard"],
+    ["Spock"],
     ]
 
 print("\033[1m Welcome to Rock Paper Scissors!\033[0m")
@@ -100,3 +94,15 @@ while selectedVS != "1" or selectedVS != "2":
             break
     else:
         print("Invalid Option!, you needed to type a 1, or 2")
+
+
+if mode == game_type[0]:
+    game_options = choices[0:3]
+    print("Your options: " + str(game_options))
+elif mode == game_type[1]:
+    game_options = choices[0:5]
+    print("Your options: " + str(game_options))
+else:
+    print("An error has occured")
+
+
