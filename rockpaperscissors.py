@@ -103,3 +103,24 @@ elif mode == game_type[1]:
     print("Your options: " + str(game_options))
 else:
     print("An error has occured")
+
+# Player Selection of options
+
+
+
+# 2nd Player Selection of options
+
+
+# Computers Selection of options
+
+
+# Which options beat which
+
+
+# Displaying Outcome of options (Win/Loss/Draw)
+
+
+# Features to add
+# Ask how many rounds are being played
+# Display Score
+# Play again feature
