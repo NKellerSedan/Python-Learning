@@ -106,12 +106,20 @@ else:
 
 # Player Selection of options
 
+player_choice = input("Player 1 select your choice: ") 
+print(game_options[int(player_choice) - 1])
 
 
-# 2nd Player Selection of options
-
-
-# Computers Selection of options
+# If statement on if it is 2 player or vs computer
+if selectedVS == "1":
+    # Computers Selection of options
+    max_choices = int(len(game_options))
+    cpu_choice = random.randint(0,max_choices)
+    print("The computer chose: " + str(game_options[int(cpu_choice) - 1]))
+elif selectedVS == "2":
+    # Player
+    opponent_choice = input("Player 2 select your choice: ")
+    print(game_options[int(opponent_choice) - 1])
 
 
 # Which options beat which
