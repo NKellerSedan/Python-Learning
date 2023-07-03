@@ -37,6 +37,8 @@ choices = [
     "Spock",
     ]
 
+play = True
+
 print("\033[1m Welcome to Rock Paper Scissors!\033[0m")
 print("================================")
 
@@ -95,85 +97,90 @@ while selectedVS != "1" or selectedVS != "2":
     else:
         print("Invalid Option!, you needed to type a 1, or 2")
 
-if mode == game_type[0]:
-    game_options = choices[0:3]
-    print("Your options: " + str(game_options))
-elif mode == game_type[1]:
-    game_options = choices[0:5]
-    print("Your options: " + str(game_options))
-else:
-    print("An error has occured")
+while play:
 
-# Player Selection of options
-
-player_selection = input("Player 1 select your choice: ") 
-player_choice = game_options[int(player_selection) - 1]
-print(player_choice)
-
-# If statement on if it is 2 player or vs computer
-if selectedVS == "1":
-    # Computers Selection of options
-    max_choices = int(len(game_options))
-    cpu_choice = random.randint(0,max_choices)
-    opponent_choice = game_options[int(cpu_choice) - 1]
-    print("The computer chose: " + opponent_choice)
-elif selectedVS == "2":
-    # Player
-    opponent_selection = input("Player 2 select your choice: ")
-    opponent_choice = game_options[int(opponent_selection) - 1]
-    print(opponent_choice)
-
-
-# Which options beat which
-# Displaying Outcome of options (Win/Loss/Draw)
-
-if player_choice == opponent_choice:
-    print(f"Both players selected {player_choice}. It's a tie!")
-elif player_choice == "Rock":
-    if opponent_choice == "Scissors":
-        print("Rock crushes scissors! Player 1 wins!")
-    elif opponent_choice == "Lizard":
-        print("Rock crushes lizard! Player 1 wins!")
-    elif opponent_choice == "Spock":
-        print(f"Spock vaporizes rock! {opponent} wins!")
+    if mode == game_type[0]:
+        game_options = choices[0:3]
+        print("Your options: " + str(game_options))
+    elif mode == game_type[1]:
+        game_options = choices[0:5]
+        print("Your options: " + str(game_options))
     else:
-        print(f"Paper covers rock! {opponent} wins!")
-elif player_choice == "Paper":
-    if opponent_choice == "Rock":
-        print("Paper covers rock! Player 1 wins!")
-    elif opponent_choice == "Spock":
-        print("Spock disproves paper! Player 1 wins!")
-    elif opponent_choice == "Lizard":
-        print(f"Lizard eats paper! {opponent} wins!")
-    else:
-        print(f"Scissors cuts paper! {opponent} wins!")
-elif player_choice == "Scissors":
-    if opponent_choice == "Paper":
-        print("Scissors cuts paper! Player 1 wins!")
-    elif opponent_choice == "Lizard":
-        print("Scissors decapitates lizard! Player 1 wins!")
-    elif opponent_choice == "Spock":
-        print(f"Spock smashes scissors! {opponent} wins!")
-    else:
-        print(f"Rock smashes scissors! {opponent} wins!") 
-elif player_choice == "Lizard":
-    if opponent_choice == "Paper":
-        print("Lizard eats paper! Player 1 wins!")
-    elif opponent_choice == "Spock":
-        print("Lizard poisons Spock! Player 1 wins!")
-    elif opponent_choice == "Scissors":
-        print(f"Scissors decapitates lizard! {opponent} wins!.")
-    else:
-        print(f"Rock crushes lizard! {opponent} wins!")
-elif player_choice == "Spock":
-    if opponent_choice == "Rock":
-        print("Spock vaporizes rock! Player 1 wins!")
-    elif opponent_choice == "Scissors":
-        print("Spock smashes scissors! Player 1 wins!")
-    elif opponent_choice == "Lizard":
-        print(f"Lizard poisons Spock! {opponent} wins!.")
-    else:
-        print(f"Spock disproves paper! {opponent} wins!")   
+        print("An error has occured")
+
+    # Player Selection of options
+    player_selection = input("Player 1 select your choice: ") 
+    player_choice = game_options[int(player_selection) - 1]
+    print(player_choice)
+
+    # If statement on if it is 2 player or vs computer
+    if selectedVS == "1":
+        # Computers Selection of options
+        max_choices = int(len(game_options))
+        cpu_choice = random.randint(0,max_choices)
+        opponent_choice = game_options[int(cpu_choice) - 1]
+        print("The computer chose: " + opponent_choice)
+    elif selectedVS == "2":
+        # Player
+        opponent_selection = input("Player 2 select your choice: ")
+        opponent_choice = game_options[int(opponent_selection) - 1]
+        print(opponent_choice)
+
+
+    # Which options beat which
+    # Displaying Outcome of options (Win/Loss/Draw)
+
+    if player_choice == opponent_choice:
+        print(f"Both players selected {player_choice}. It's a tie!")
+    elif player_choice == "Rock":
+        if opponent_choice == "Scissors":
+            print("Rock crushes scissors! Player 1 wins!")
+        elif opponent_choice == "Lizard":
+            print("Rock crushes lizard! Player 1 wins!")
+        elif opponent_choice == "Spock":
+            print(f"Spock vaporizes rock! {opponent} wins!")
+        else:
+            print(f"Paper covers rock! {opponent} wins!")
+    elif player_choice == "Paper":
+        if opponent_choice == "Rock":
+            print("Paper covers rock! Player 1 wins!")
+        elif opponent_choice == "Spock":
+            print("Spock disproves paper! Player 1 wins!")
+        elif opponent_choice == "Lizard":
+            print(f"Lizard eats paper! {opponent} wins!")
+        else:
+            print(f"Scissors cuts paper! {opponent} wins!")
+    elif player_choice == "Scissors":
+        if opponent_choice == "Paper":
+            print("Scissors cuts paper! Player 1 wins!")
+        elif opponent_choice == "Lizard":
+            print("Scissors decapitates lizard! Player 1 wins!")
+        elif opponent_choice == "Spock":
+            print(f"Spock smashes scissors! {opponent} wins!")
+        else:
+            print(f"Rock smashes scissors! {opponent} wins!") 
+    elif player_choice == "Lizard":
+        if opponent_choice == "Paper":
+            print("Lizard eats paper! Player 1 wins!")
+        elif opponent_choice == "Spock":
+            print("Lizard poisons Spock! Player 1 wins!")
+        elif opponent_choice == "Scissors":
+            print(f"Scissors decapitates lizard! {opponent} wins!.")
+        else:
+            print(f"Rock crushes lizard! {opponent} wins!")
+    elif player_choice == "Spock":
+        if opponent_choice == "Rock":
+            print("Spock vaporizes rock! Player 1 wins!")
+        elif opponent_choice == "Scissors":
+            print("Spock smashes scissors! Player 1 wins!")
+        elif opponent_choice == "Lizard":
+            print(f"Lizard poisons Spock! {opponent} wins!.")
+        else:
+            print(f"Spock disproves paper! {opponent} wins!")   
+
+    # Play again feature
+    again=str(input("Do you want to play again, type yes or no? "))
+    if again == "no":
+      play = False
 
 # Display Score
-# Play again feature
